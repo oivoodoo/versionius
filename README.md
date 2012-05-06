@@ -45,6 +45,14 @@ It will create a minor version of the project(new tag), make 'git push --tags
 origin master', generate new version.txt file in the public folder after
 deployment.
 
+Also you can run code manually to generate version.txt file or create new tag.
+
+    builder = Versionius::Builder.new('./', './public/')
+    builder.run
+
+    version = Versionius::Version.new('./')
+    version.minor
+
 ## Contributing
 
 1. Fork it
