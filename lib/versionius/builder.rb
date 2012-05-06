@@ -12,9 +12,8 @@ module Versionius
       repo = Grit::Repo.new(@repository_path)
 
       File.open(File.join(@version_file_path, Versionius::FILE_NAME), "w+") do |file|
-        tag = repo.tags.last
-        unless tag.nil?
-          file.puts "#{Versionius::TAG_TITLE} #{tag.name}"
+        unless repo.tags.empty?
+          file.puts "#{Versionius::TAG_TITLE} #{repo.tags.last.name}"
 
           commits = between_tags(repo) if repo.tags.size > 1
         end
@@ -27,16 +26,9 @@ module Versionius
   end
 
   def between_tags(repo)
-    commits = []
+    last = repo.tags.last
     previous = repo.tags[repo.tags.size - 2]
-
-    for commit in repo.commits
-      break if commit.id == previous.commit.id
-
-      commits << commit
-    end
-
-    commits
+    repo.commits_between(previous.commit.id, last.commit.id)
   end
 end
 
