@@ -27,6 +27,24 @@ If you are using Rails 2 you can add to your deploy.rb or Rakefile
 
     require 'versionius/tasks'
 
+Now we can create a custom deploy task for capistrano like that:
+
+    before 'deploy' do
+      sh <<-CMD
+        rake versionius:minor
+      CMD
+    end
+
+    after 'deploy' do
+      run <<-CMD
+        rake versionius:build
+      CMD
+    end
+
+It will create a minor version of the project(new tag), make 'git push --tags
+origin master', generate new version.txt file in the public folder after
+deployment.
+
 ## Contributing
 
 1. Fork it
