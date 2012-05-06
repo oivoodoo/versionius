@@ -1,5 +1,4 @@
 require 'versionius'
-require 'rake'
 
 namespace :versionius do
 
@@ -8,4 +7,24 @@ namespace :versionius do
     builder = Versionius::Builder.new('./', './public/')
     builder.run
   end
+
+  desc "Create minor tag"
+  task :minor do
+    version = Versionius::Version.new('./')
+    version.minor
+  end
+
+  desc "Create major tag"
+  task :major do
+    version = Versionius::Version.new('./')
+    version.major
+  end
+
+
+  desc "Create release tag"
+  task :release do
+    version = Versionius::Version.new('./')
+    version.release
+  end
 end
+

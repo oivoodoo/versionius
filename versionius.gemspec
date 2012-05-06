@@ -16,4 +16,5 @@ Gem::Specification.new do |gem|
   gem.version       = Versionius::VERSION
 
   gem.add_dependency('grit')
+  gem.add_dependency('versionomy')
 end

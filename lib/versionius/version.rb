@@ -1,5 +1,6 @@
 require 'grit'
 require 'versionomy'
+require 'rake'
 
 module Versionius
 
@@ -28,11 +29,11 @@ module Versionius
     end
 
     def tag_version(version)
-      sh "git tag #{version}"
+      system "git tag #{version}"
     end
 
     def git_push
-      sh "git push origin master"
+      system "git push --tags origin master"
     end
 
     def change(version)
