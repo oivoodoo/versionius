@@ -1,4 +1,7 @@
 require 'versionius'
+require 'rake'
+
+include Rake::DSL if defined?(Rake::DSL)
 
 namespace :versionius do
 
