@@ -1,6 +1,7 @@
 require "versionius/versionius"
 require "versionius/builder"
 require "versionius/tasks"
+require "versionius/version"
 
 require "versionius/railtie" if defined?(Rails)
 

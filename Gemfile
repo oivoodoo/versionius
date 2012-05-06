@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'grit'
+gem 'versionomy'
 
 group :development do
   gem 'debugger'
