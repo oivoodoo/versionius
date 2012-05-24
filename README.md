@@ -26,7 +26,7 @@ Or install it yourself as:
 If you are using Rails 2 version you should add load method to your Rakefile:
 
 ```ruby
-  load "#{Gem.searcher.find('deployments').full_gem_path}/lib/tasks/deployments.rake"
+  load "#{Gem.searcher.find('versionius').full_gem_path}/lib/tasks/deployments.rake"
 ```
 
 Now we can create a custom deploy task for capistrano like that:
